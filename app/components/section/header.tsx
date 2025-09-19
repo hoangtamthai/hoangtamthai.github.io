@@ -104,7 +104,7 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent className="w-56 sm:w-[540px]">
             <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
+              <SheetTitle className="m-auto">Menu</SheetTitle>
               <SheetDescription>
                 <div className="flex flex-col gap-2">
                   <Menus />
