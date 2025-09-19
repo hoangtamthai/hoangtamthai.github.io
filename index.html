@@ -4,7 +4,7 @@
 <head>
     <!--Insert OG Markup -->
     <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Thai Hoang Tam Page" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Tam Thai" />
     <meta prefix="og: http://ogp.me/ns#" property="og:description" content="My personal website" />
     <meta prefix="og: http://ogp.me/ns#" property="og:image"
         content="https://thtam.netlify.app/images/PersonalWebsite.png" />
@@ -20,8 +20,9 @@
     <meta name="author" content="Thai Hoang Tam" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./images/Website Logo.png" />
-    <title>Tam's Page!!</title>
+    <title>Tam Thai</title>
     <link rel="stylesheet" href="resources/css/style.css" />
+    <link href="resources/css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="resources/js/quote.js"></script>
     <script src="resources/js/responsive.js"></script>
@@ -29,37 +30,41 @@
     <script src="visuals/fish/fish.js"></script>
 </head>
 
-<body>
+<body class="mx-80">
     <script>
         setAppearance();
     </script>
 
-    <div class="flex-container">
+    <div id="header"
+        class="z-3 fixed w-full backdrop-blur-3xl opacity-80 left-0 py-2 top-0 shadow-md flex items-center justify-between px-4">
         <div>
             <a href="/">
                 <img id="logo" src="./images/Website Logo Transparent.png" />
             </a>
         </div>
-        <div class="navigation" id="nav">
-            <a href="javascript:void(0);" class="icon" onclick="responsiveNavigation()">
+        <div class="flex gap-5" id="nav">
+            <a href="javascript:void(0);" class="icon sm:hidden" onclick="responsiveNavigation()">
                 <i class="fa fa-bars"></i>
             </a>
-            <a class="selected" href="index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#media">Media</a>
-            <a href="page/work-blog.html">Work blog</a>
+            <a class="space-x-0.5" href="page/work-blog.html">Log</a>
         </div>
+        <div></div>
     </div>
-    <div class="landing">
-        <div class="landing-text">
-            <h2>Nice to meet you :3</h2>
-            <h2>It's my porfolio website I made to learn a few things about front-end development </h2>
-            <h2>To know more about me, keep scrolling down or click the button on the top right</h2>
-            <h2>I took a lot of photos and videos in Europe and you can see them in the Media section :></h2>
-            <h2>Here are some nice visuals you can enjoy :</h2>
-        </div>
+
+    <div class="h-20"></div>
+
+    <div id="landing" class="pb-5">
+        <h2>Nice to meet you :3
+            Take a look around to know more about me.
+            I took a lot of photos and videos in Europe and you can see them in the Media section :>
+            Here are some nice visuals you can enjoy:
+        </h2>
     </div>
+
     <div id="wrapper" data-configuration="1" data-roundness="1">
         <div class="shape"></div>
         <div class="shape"></div>
@@ -74,47 +79,46 @@
             <i class="fish fa-solid fa-fish" name="fish"></i>
         </div>
     </div>
-    <div style="height: 100px"></div>
+    <div class="h-20"></div>
 
     <a id="about"></a>
-    <h2 style="text-align: center">About</h2>
+    <h2 class="text-center text-2xl py-5">About me</h2>
     <div class="about">
-        <div class="about-text">
-            <h2>My name is Tam.
+        <div class="text-md">
+            <h2>My name is Tam. Currently I am a Master's Student in Computer Science at Technical University of
+                Darmstadt with a focus on distributed computing.
                 I have graduated with an excellent degree in Computer Science student at Vietnamese-German University.
-                Currently I am a Master's Student in Computer Science at Technical University of Darmstadt.
-        </div>
-        <div>
-            <h2 style="text-align: center;">My contacts</h2>
-        </div>
-        <div class="contacts">
-            <a href="https://facebook.com/thaihoangtam.306"><img alt="My Facebook" src="images/Icon/FacebookIcon.png"
-                    width="50" /></a>
-            <a href="https://instagram.com/hoangtamthai/"><img alt="My instagram" src="images/Icon/InstagramIcon.png"
-                    width="50" /></a>
-            <a href="https://linkedin.com/in/thái-hoàng-tâm-626563221"><img alt="My linkedin"
-                    src="images/Icon/LinkedinIcon.png" width="50" /></a>
-            <a href="https://github.com/RoyalHeart"><img alt="My Github" src="images/Icon/GithubIcon.png"
-                    width="50" /></a>
-            <a class="resume-download" href="resources/pdf/Resume.pdf" download="Resume">My Resume</a>
-        </div>
-        <img src="images/DSC_7198.jpg" class="porfolio-img" />
 
+        </div>
     </div>
+    <h2 class="text-center text-2xl py-5">My contacts</h2>
+    <div class="flex justify-center flex-row flex-wrap gap-5 pb-5">
+        <a href="https://facebook.com/thaihoangtam.306"><img alt="My Facebook" src="images/Icon/FacebookIcon.png"
+                width="50" /></a>
+        <a href="https://instagram.com/hoangtamthai/"><img alt="My instagram" src="images/Icon/InstagramIcon.png"
+                width="50" /></a>
+        <a href="https://linkedin.com/in/thái-hoàng-tâm-626563221"><img alt="My linkedin"
+                src="images/Icon/LinkedinIcon.png" width="50" /></a>
+        <a href="https://github.com/RoyalHeart"><img alt="My Github" src="images/Icon/GithubIcon.png" width="50" /></a>
+        <a class="resume-download" href="resources/pdf/Resume.pdf" download="Resume">My Resume</a>
+    </div>
+    <img src="images/DSC_7198.jpg" class="porfolio-img" />
+
     <div style="height: 100px"></div>
 
     <a id="projects"></a>
-    <h2 style="text-align: center;">Project</h2>
-    <div class="project-content">
-        <div class="project-info">
-            <a href="https://github.com/RoyalHeart/StockPrediction"><img alt="StockPrediction"
+    <h2 class="text-center text-2xl py-5">Project</h2>
+    <div class="flex justify-center flex-row flex-wrap gap-10 pb-5">
+        <div>
+            <a href="https://github.com/RoyalHeart/StockPrediction">
+                <img alt="StockPrediction" class="rounded-xl w-52 h-52"
                     src="./images/project-thumbnail/StockPrediction.png">
             </a>
-            <h2>Stock Prediction</h2>
+            <h2 class="text-center">Stock Prediction</h2>
         </div>
-        <div class="project-info">
-            <a href="https://github.com/RoyalHeart/VoiceAI"><img alt="VoiceAI"
-                    src="./images/project-thumbnail/VoiceAI.jpeg">
+        <div>
+            <a href="https://github.com/RoyalHeart/VoiceAI">
+                <img class="rounded-xl w-52 h-52" alt="VoiceAI" src="./images/project-thumbnail/VoiceAI.jpeg">
             </a>
             <h2>VoiceAI</h2>
         </div>
@@ -146,10 +150,10 @@
     <div style="height: 100px"></div>
 
     <a id="media"></a>
-    <h2 style="text-align: center;">Media</h2>
+    <h2 class="text-center text-2xl py-5">Media</h2>
     <div class="media">
         <div>
-            <h2>Here is my albums from Germany, Paris, etc.</h2>
+            <h2>Here is my albums from Europe</h2>
         </div>
         <div class="album-content">
             <div>
@@ -232,10 +236,15 @@
     </div>
     <div style="height: 100px"></div>
 
-    <div class="toggle-theme" onclick="toggleDarkMode()">
-        <i class="fa-solid fa-lightbulb"></i>
+    <div class="toggle-theme flex items-center justify-center" onclick="toggleDarkMode()">
+        <i class="fa-solid fa-lightbulb flex items-center"></i>
     </div>
-    <div class="footer" name="randomQuote"></div>
+    <!-- <div class="footer" name="randomQuote"></div> -->
+
+    <div class="flex justify-center">
+        <p>2025. This website is made by Tam Thai</p>
+    </div>
+    <div class="h-5"></div>
     <script src="resources/js/main.js"></script>
 </body>
 
