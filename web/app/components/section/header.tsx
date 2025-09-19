@@ -70,11 +70,7 @@ export default function Header() {
   function Menus() {
     return links.map((link) => {
       return (
-        <Link
-          to={link.url}
-          key={link.url}
-          // className={activeId === link.url.replace("/", "").replace("#", "") ? "font-bold underline" : ""}
-        >
+        <Link to={link.url} key={link.url} className="hover:underline">
           {link.title}
         </Link>
       );

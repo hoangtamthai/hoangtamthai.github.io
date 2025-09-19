@@ -25,9 +25,8 @@ export default function Log() {
       <div id="/log" className="h-20"></div>
       <Typography variant={"h1"}>(B)log</Typography>
       <Typography variant={"p"}>
-        Welcome to my (B)log. I call it (B)log because it's a combination of
-        blog and log about my experiences and work. This log is the work-log I
-        write when working as UNIT.
+        Welcome to my (B)log, a combination of blog and log about my experiences
+        and work. This log is the work-log I write when working as UNIT.
       </Typography>
       <div className="h-6"></div>
       <div
