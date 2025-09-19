@@ -179,14 +179,14 @@ export default function HomePage() {
             <span className="from-red-600 text-transparent bg-clip-text to-yellow-500 from-70% bg-gradient-to-r">
               Vietnam
             </span>
-            . Currently I am a Master's Student in Computer Science at Technical
-            University of Darmstadt,{" "}
+            , based in{" "}
             <span className="from-black via-red-600 to-yellow-500 bg-gradient-to-r text-transparent bg-clip-text">
               Germany
-            </span>{" "}
-            with a focus on Distributed Computing. I have graduated with an
-            excellent degree in Computer Science student at Vietnamese-German
-            University.
+            </span>
+            . Currently I am a Master's Student in Computer Science at Technical
+            University of Darmstadt with a focus on Distributed Computing. I
+            have graduated with an excellent degree in Computer Science student
+            at Vietnamese-German University.
           </Typography>
           <div className="mt-2">
             <Typography variant={"h2"} className="text-center">
@@ -255,9 +255,9 @@ export default function HomePage() {
         for about 2 years as a Java Software Developer. I am also the creator of
         the website for{" "}
         <Link
-          className="underline hover:cursor text-yellow-600"
-          to={"https://beestudious.org"}
+          to="https://beestudious.org"
           target="_blank"
+          className="underline hover:cursor text-yellow-500"
         >
           Beestudious <ExternalLinkIcon className="inline" />
         </Link>

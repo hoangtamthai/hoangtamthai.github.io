@@ -72,13 +72,15 @@ export default function Header() {
     return links.map((link) => {
       if (link.url === "/log") {
         return (
-          <Button variant={"outline"} key={link.url} className="relative animate-light-run">
-            <Link to={link.url}>{link.title}</Link>
-          </Button>
+          <Link to={link.url} className="m-auto" key={link.url}>
+            <Button variant={"outline"} className="relative border-2 border-black m-auto">
+              {link.title}
+            </Button>
+          </Link>
         );
       }
       return (
-        <Link to={link.url} key={link.url} className="my-auto hover:underline">
+        <Link to={link.url} key={link.url} className="m-auto hover:underline">
           {link.title}
         </Link>
       );
