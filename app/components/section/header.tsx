@@ -47,7 +47,7 @@ export default function Header() {
     >
       <div>
         <Link to="/">
-          <img id="logo" className="h-10" src="images/logo_transparent.png" />
+          <img id="logo" className="h-10" src="/images/logo_transparent.png" />
         </Link>
       </div>
       <div id="nav">
