@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react";
-import { useLayoutEffect, useState } from "react";
 import { Link } from "react-router";
+import { Button } from "../ui/button";
 import {
   Sheet,
   SheetContent,
@@ -9,57 +9,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-import { Button } from "../ui/button";
 
 export default function Header() {
-  // const clamp = (value: number) => Math.max(0, value);
-
-  // const isBetween = (value: number, floor: number, ceil: number) =>
-  //   value >= floor && value <= ceil;
-  // const useScrollspy = (ids: string[], offset: number = 0) => {
-  //   const [activeId, setActiveId] = useState("");
-
-  //   useLayoutEffect(() => {
-  //     const listener = () => {
-  //       const scroll = window.pageYOffset;
-
-  //       const position = ids
-  //         .map((id) => {
-  //           const element = document.getElementById(id);
-
-  //           if (!element) return { id, top: -1, bottom: -1 };
-
-  //           const rect = element.getBoundingClientRect();
-  //           const top = clamp(rect.top + scroll - offset);
-  //           const bottom = clamp(rect.bottom + scroll - offset);
-
-  //           return { id, top, bottom };
-  //         })
-  //         .find(({ top, bottom }) => isBetween(scroll, top, bottom));
-
-  //       setActiveId(position?.id || "");
-  //     };
-
-  //     listener();
-
-  //     window.addEventListener("resize", listener);
-  //     window.addEventListener("scroll", listener);
-
-  //     return () => {
-  //       window.removeEventListener("resize", listener);
-  //       window.removeEventListener("scroll", listener);
-  //     };
-  //   }, [ids, offset]);
-
-  //   return activeId;
-  // };
-  // get urls from links array
-  // const ids = links.map((link) => link.url.replace("#", "").replace("/", ""));
-  // console.log(ids);
-  // const activeId = useScrollspy(ids, 56); // 56 is navigation height
-  // console.log(activeId);
-  // console.log("header rendered");
-
   const links = [
     { url: "/", title: "Home" },
     { url: "/#about", title: "About" },
@@ -73,7 +24,10 @@ export default function Header() {
       if (link.url === "/log") {
         return (
           <Link to={link.url} className="m-auto" key={link.url}>
-            <Button variant={"outline"} className="relative border-2 border-black m-auto">
+            <Button
+              variant={"outline"}
+              className="relative m-auto border-2 border-black"
+            >
               {link.title}
             </Button>
           </Link>
@@ -89,7 +43,7 @@ export default function Header() {
   return (
     <div
       id="header"
-      className="z-10 fixed w-full backdrop-blur-3xl opacity-90 left-0 py-2 top-0 shadow-md flex items-center justify-between px-4"
+      className="fixed top-0 left-0 z-10 flex w-full items-center justify-between px-4 py-2 opacity-90 shadow-md backdrop-blur-3xl"
     >
       <div>
         <Link to="/">

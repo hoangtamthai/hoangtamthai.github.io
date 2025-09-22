@@ -155,7 +155,7 @@ export default function HomePage() {
     },
   ];
   return (
-    <div className="mx-12 lg:mx-60 md:mx-42 dark:bg-black">
+    <div className="mx-12 md:mx-42 lg:mx-60 dark:bg-black">
       <Header />
       <div id="/" className="h-20"></div>
       <div className="pb-5">
@@ -173,14 +173,14 @@ export default function HomePage() {
       <Typography variant={"h1"}>About me</Typography>
       <div className="h-6"></div>
       <div className="lg:flex">
-        <div className="lg:flex lg:flex-col lg:grow-[2] lg:justify-around gap-2">
+        <div className="gap-2 lg:flex lg:grow-[2] lg:flex-col lg:justify-around">
           <Typography variant={"p"}>
             Hey, I am Tam from{" "}
-            <span className="from-red-600 text-transparent bg-clip-text to-yellow-500 from-70% bg-gradient-to-r">
+            <span className="bg-gradient-to-r from-red-600 from-70% to-yellow-500 bg-clip-text text-transparent">
               Vietnam
             </span>
             , based in{" "}
-            <span className="from-black via-red-600 to-yellow-500 bg-gradient-to-r text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-black via-red-600 to-yellow-500 bg-clip-text text-transparent">
               Germany
             </span>
             . Currently I am a Master's Student in Computer Science at Technical
@@ -212,7 +212,7 @@ export default function HomePage() {
             <Typography variant={"h2"} className="text-center">
               Contacts
             </Typography>
-            <div className="flex justify-center flex-row flex-wrap gap-5 pb-5">
+            <div className="flex flex-row flex-wrap justify-center gap-5 pb-5">
               {contacts.map((contact) => {
                 return (
                   <Link key={contact.url} target="_blank" to={contact.url}>
@@ -222,10 +222,10 @@ export default function HomePage() {
               })}
               <Button
                 variant={"outline"}
-                className="flex justify-center my-auto"
+                className="my-auto flex justify-center"
               >
                 <a
-                  className="w-fit text-center bg-gray"
+                  className="bg-gray w-fit text-center"
                   href="/pdf/Resume.pdf"
                   download="Resume"
                 >
@@ -237,7 +237,7 @@ export default function HomePage() {
         </div>
         <img
           src="images/DSC_7198.jpg"
-          className="rounded-lg w-1/3 lg:grow-[1] lg:w-full mx-auto"
+          className="mx-auto w-1/3 rounded-lg lg:w-full lg:grow-[1]"
         />
       </div>
 
@@ -248,7 +248,7 @@ export default function HomePage() {
         <Link
           to="https://unit.com.vn/"
           target="_blank"
-          className="underline hover:cursor text-blue-500"
+          className="hover:cursor text-blue-500 underline"
         >
           UNIT Technology Corporation <ExternalLinkIcon className="inline" />
         </Link>{" "}
@@ -257,7 +257,7 @@ export default function HomePage() {
         <Link
           to="https://beestudious.org"
           target="_blank"
-          className="underline hover:cursor text-yellow-500"
+          className="hover:cursor text-yellow-500 underline"
         >
           Beestudious <ExternalLinkIcon className="inline" />
         </Link>
@@ -277,13 +277,13 @@ export default function HomePage() {
             return (
               <CarouselItem
                 key={project.url}
-                className="lg:basis-1/3 flex flex-col gap-5 justify-between"
+                className="flex flex-col justify-between gap-5 lg:basis-1/3"
               >
                 <div></div>
                 <a href={project.url} target="_blank">
                   <img
                     alt={project.alt}
-                    className="rounded-xl h-52 mx-auto"
+                    className="mx-auto h-52 rounded-xl"
                     src={project.src}
                   />
                 </a>
@@ -297,7 +297,7 @@ export default function HomePage() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="flex justify-around flex-row flex-wrap gap-16"></div>
+      <div className="flex flex-row flex-wrap justify-around gap-16"></div>
 
       <div id="media" className="h-24"></div>
       <Typography variant={"h1"}>Media</Typography>
