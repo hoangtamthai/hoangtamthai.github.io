@@ -20,8 +20,7 @@ export default function Log() {
   }, []);
 
   return (
-    <div className="mx-12 lg:mx-60 md:mx-42 dark:bg-black">
-      <Header />
+    <div className="mx-12 md:mx-42 lg:mx-60 dark:bg-black">
       <div id="/log" className="h-20"></div>
       <Typography variant={"h1"}>(B)log</Typography>
       <Typography variant={"p"}>

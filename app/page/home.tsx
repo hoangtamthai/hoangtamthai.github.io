@@ -156,7 +156,6 @@ export default function HomePage() {
   ];
   return (
     <div className="mx-12 md:mx-42 lg:mx-60 dark:bg-black">
-      <Header />
       <div id="/" className="h-20"></div>
       <div className="pb-5">
         <Typography variant={"h2"}>Nice to meet you :3</Typography>
@@ -322,12 +321,6 @@ export default function HomePage() {
         <CarouselNext />
         <CarouselPrevious />
       </Carousel>
-      <div className="h-24"></div>
-
-      <div className="flex justify-center">
-        <p>2025. Made by Tam Thai</p>
-      </div>
-      <div className="h-5"></div>
     </div>
   );
 }
