@@ -4,16 +4,17 @@
 @import "./components/visuals/shapes.css";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 @custom-variant dark (&:where(.dark, .dark *));
 html,
 body {
   @apply bg-white dark:bg-gray-950;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+  @media (prefers-color-scheme: light) {
+    color-scheme: light;
   }
   scroll-behavior: smooth;
 }
@@ -161,31 +162,31 @@ body {
   @apply mb-4;
 }
 .markdown-body h1 {
-  @apply text-2xl font-bold mb-4;
+  @apply mb-4 text-2xl font-bold;
 }
 .markdown-body h2 {
-  @apply text-xl font-bold mb-4;
+  @apply mb-4 text-xl font-bold;
 }
 .markdown-body h3 {
-  @apply text-lg font-bold mb-4;
+  @apply mb-4 text-lg font-bold;
 }
 .markdown-body ul {
-  @apply list-disc list-inside mb-4 indent-4;
+  @apply mb-4 list-inside list-disc indent-4;
 }
 .markdown-body ol {
-  @apply list-decimal list-inside mb-4 indent-4;
+  @apply mb-4 list-inside list-decimal indent-4;
 }
 .markdown-body ol ul,
 .markdown-body ul ol,
 .markdown-body ul ul,
 .markdown-body ol ol {
-  @apply list-disc bg-transparent list-inside ml-6 mb-2;
+  @apply mb-2 ml-6 list-inside list-disc bg-transparent;
 }
 .markdown-body li {
   @apply mb-2;
 }
 .markdown-body hr {
-  @apply my-6 border-t border-border;
+  @apply border-border my-6 border-t;
 }
 .markdown-body a {
   @apply text-primary underline;

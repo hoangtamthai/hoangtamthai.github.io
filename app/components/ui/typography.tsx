@@ -14,7 +14,7 @@ export const typographyVariants = cva("text-xl", {
       // list: "my-6 ml-6 list-disc [&>li]:mt-2",
     },
     affects: {
-      default: "",
+      default: "text-justify",
       lead: "text-xl text-muted-foreground",
       large: "text-lg font-semibold",
       small: "text-sm font-medium leading-none",

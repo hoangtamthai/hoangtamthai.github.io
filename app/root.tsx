@@ -33,6 +33,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Welcome to Tam Thai's personal website"
+        />
+        <meta name="og:title" content="Tam Thai Website" />
+        <meta
+          name="og:description"
+          content="Welcome to Tam Thai's personal website"
+        />
+        <meta
+          name="og:image"
+          content="https://www.tamthai.de/images/og-image.png"
+        />
         <Meta />
         <link rel="icon" href="logo.png" />
         <Links />

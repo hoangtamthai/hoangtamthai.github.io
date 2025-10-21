@@ -171,11 +171,11 @@ export default function HomePage() {
 
       <Typography variant={"h1"}>About me</Typography>
       <div className="h-6"></div>
-      <div className="lg:flex">
-        <div className="gap-2 lg:flex lg:grow-[2] lg:flex-col lg:justify-around">
-          <Typography variant={"p"}>
+      <div className="lg:grid lg:grid-cols-3">
+        <div className="gap-2 lg:col-span-2 lg:flex lg:grow-[2] lg:flex-col lg:justify-around">
+          <Typography className="lg:pr-5" variant={"p"}>
             Hey, I am Tam from{" "}
-            <span className="bg-gradient-to-r from-red-600 from-70% to-yellow-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 from-30% via-yellow-500 to-red-600 bg-clip-text text-transparent">
               Vietnam
             </span>
             , based in{" "}
@@ -235,8 +235,8 @@ export default function HomePage() {
           </div>
         </div>
         <img
-          src="images/DSC_7198.jpg"
-          className="mx-auto w-1/3 rounded-lg lg:w-full lg:grow-[1]"
+          src="images/personal.jpg"
+          className="mx-auto h-full w-fit rounded-lg object-cover lg:col-span-1 lg:grow-[1]"
         />
       </div>
 
