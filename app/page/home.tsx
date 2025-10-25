@@ -26,7 +26,7 @@ export default function HomePage() {
       src: "images/icon/InstagramIcon.png",
     },
     {
-      url: "https://linkedin.com/in/thái-hoàng-tâm-626563221",
+      url: "https://linkedin.com/in/hoangtamthai",
       alt: "My linkedin",
       src: "images/icon/LinkedinIcon.png",
     },
