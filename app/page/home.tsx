@@ -31,7 +31,7 @@ export default function HomePage() {
       src: "images/icon/LinkedinIcon.png",
     },
     {
-      url: "https://github.com/RoyalHeart",
+      url: "https://github.com/hoangtamthai",
       alt: "My Github",
       src: "images/icon/GithubIcon.png",
     },
