@@ -7,7 +7,7 @@ export default function Footer() {
         2025. By{" "}
         <Link
           className="hover:cursor-pointer hover:underline"
-          to="https://github.com/royalheart"
+          to="https://github.com/hoangtamthai"
           target="_blank"
         >
           Tam Thai

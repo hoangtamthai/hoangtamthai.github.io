@@ -44,21 +44,21 @@ export default function HomePage() {
       title: "Beestudious",
     },
     {
-      url: "https://github.com/RoyalHeart/StockPrediction",
+      url: "https://github.com/hoangtamthai/StockPrediction",
       alt: "StockPrediction",
       src: "./images/project-thumbnail/StockPrediction.png",
       title: "Stock Prediction",
     },
     {
-      url: "https://github.com/RoyalHeart/VoiceAI",
+      url: "https://github.com/hoangtamthai/VoiceAI",
       alt: "VoiceAI",
       src: "./images/project-thumbnail/VoiceAI.jpeg",
       title: "VoiceAI",
     },
     {
-      url: "https://github.com/RoyalHeart/VGU-License-Detection",
+      url: "https://github.com/hoangtamthai/VGU-License-Detection",
       alt: "License Detection",
-      src: "https://raw.githubusercontent.com/RoyalHeart/VGU-License-Detection/main/static/large/detected_large_03.jpg",
+      src: "https://raw.githubusercontent.com/hoangtamthai/VGU-License-Detection/main/static/large/detected_large_03.jpg",
       title: "License Detection",
     },
     {
@@ -74,9 +74,9 @@ export default function HomePage() {
       title: "Etoet",
     },
     {
-      url: "https://github.com/RoyalHeart/TimeScheduler",
+      url: "https://github.com/hoangtamthai/TimeScheduler",
       alt: "TimeScheduler",
-      src: "https://raw.githubusercontent.com/RoyalHeart/TimeScheduler/main/Tisch/src/main/resources/TimeSchedulerIcon.png",
+      src: "https://raw.githubusercontent.com/hoangtamthai/TimeScheduler/main/Tisch/src/main/resources/TimeSchedulerIcon.png",
       title: "Time Scheduler",
     },
   ];
