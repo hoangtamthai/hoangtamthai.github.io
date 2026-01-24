@@ -23,18 +23,17 @@ export default function Header() {
     return links.map((link) => {
       if (link.url === "/log") {
         return (
-          <Link to={link.url} className="m-auto" key={link.url}>
-            <Button
-              variant={"outline"}
-              className="relative m-auto border-2 border-black"
-            >
-              {link.title}
-            </Button>
+          <Link to={link.url} className="mr-10 ml-auto" key={link.url}>
+            <Button variant={"outline"}>{link.title}</Button>
           </Link>
         );
       }
       return (
-        <Link to={link.url} key={link.url} className="m-auto hover:underline">
+        <Link
+          to={link.url}
+          key={link.url}
+          className="mr-10 ml-auto hover:underline sm:m-auto"
+        >
           {link.title}
         </Link>
       );
@@ -43,22 +42,21 @@ export default function Header() {
   return (
     <div
       id="header"
-      className="fixed top-0 left-0 z-10 flex w-full items-center justify-between px-4 py-2 opacity-90 shadow-md backdrop-blur-3xl"
+      className="fixed top-0 left-0 z-10 flex max-h-10 w-full items-center justify-between px-4 py-1 opacity-90 shadow-md backdrop-blur-3xl"
     >
       <div>
         <Link to="/">
-          <img id="logo" className="h-10" src="/images/logo_transparent.png" />
+          <img id="logo" className="h-8" src="/images/logo_transparent.png" />
         </Link>
       </div>
       <div id="nav">
         <Sheet>
-          <SheetTrigger className="sm:hidden">
-            <div></div>
+          <SheetTrigger className="h-10 sm:hidden">
             <Menu />
           </SheetTrigger>
-          <SheetContent className="w-56 sm:w-[540px]">
+          <SheetContent className="w-56 sm:w-[1/3]">
             <SheetHeader>
-              <SheetTitle className="m-auto">Menu</SheetTitle>
+              <SheetTitle className="mr-10 ml-auto">Menu</SheetTitle>
               <SheetDescription>
                 <div className="flex flex-col gap-2">
                   <Menus />

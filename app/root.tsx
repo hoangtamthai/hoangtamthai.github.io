@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -13,6 +14,8 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import Header from "./components/section/header";
 import Footer from "./components/section/footer";
+import Typography from "./components/ui/typography";
+import { useEffect } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -33,21 +36,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="description"
-          content="Welcome to Tam Thai's personal website"
-        />
         <meta name="og:title" content="Tam Thai Website" />
-        <meta
-          name="og:description"
-          content="Welcome to Tam Thai's personal website"
-        />
+        <meta name="og:description" content="Tam Thai's personal website" />
         <meta
           name="og:image"
           content="https://www.tamthai.de/images/og-image.png"
         />
         <Meta />
-        <link rel="icon" href="logo.png" />
+        <link rel="icon" href="/logo.png" />
         <Links />
       </head>
       <body>
@@ -57,6 +53,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Analytics />
         <SpeedInsights />
         <ScrollRestoration />
+        <ScrollToHash />
         <Scripts />
       </body>
     </html>
@@ -66,6 +63,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return <Outlet />;
 }
+const ScrollToHash = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.replace("#", ""));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]); // Runs every time the # part of the URL changes
+
+  return null;
+};
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
@@ -73,7 +84,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
+    message = error.status === 404 ? "404 - Page not found :<" : "Error";
     details =
       error.status === 404
         ? "The requested page could not be found."
@@ -84,9 +95,10 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="container mx-auto p-4 pt-16">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main className="mx-12 md:mx-42 lg:mx-60">
+      <div className="h-20"></div>
+      <Typography variant={"h1"}>{message}</Typography>
+      <Typography variant={"p"}>{details}</Typography>
       {stack && (
         <pre className="w-full overflow-x-auto p-4">
           <code>{stack}</code>

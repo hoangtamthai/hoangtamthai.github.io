@@ -1,3 +1,9 @@
+---
+tags:
+  - log
+  - work
+  - intern
+---
 # UNIT (Intern Java Developer)
 
 This blog will summarize my work experience and will be updated weekly. I

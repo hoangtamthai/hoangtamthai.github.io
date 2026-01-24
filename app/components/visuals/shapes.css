@@ -22,23 +22,23 @@
 }
 #wrapper > .shape:nth-child(1) {
   z-index: 0;
-  background-color: rgb(161, 238, 209);
+  background-color: #c6d0f5;
 }
 #wrapper > .shape:nth-child(2) {
   z-index: 2;
-  background-color: rgb(182, 242, 226, 0.7);
+  background-color: #9ecba3;
 }
 #wrapper > .shape:nth-child(3) {
   z-index: 0;
-  background-color: rgb(186, 146, 136);
+  background-color: #e2c5d2;
 }
 #wrapper > .shape:nth-child(4) {
   z-index: 2;
-  background-color: rgb(255, 214, 228, 0.7);
+  background-color: #e67d99;
 }
 #wrapper > .shape:nth-child(5) {
   z-index: 0;
-  background-color: rgb(255, 200, 210);
+  background-color: #e76680;
 }
 #wrapper[data-configuration="1"] > .shape:nth-child(1) {
   left: 0%;

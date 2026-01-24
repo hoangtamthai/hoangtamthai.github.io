@@ -11,12 +11,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-background;
 
   @media (prefers-color-scheme: light) {
     color-scheme: light;
   }
   scroll-behavior: smooth;
+}
+
+a {
+  @apply hover:text-muted-foreground scroll-m-20;
 }
 
 @theme inline {
@@ -82,8 +86,8 @@ body {
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(0.98 0.04 44);
+  --foreground: oklch(0.345 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -94,7 +98,7 @@ body {
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
+  --accent: oklch(0.85 0.02 34);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
@@ -116,8 +120,8 @@ body {
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --background: oklch(0.345 0 0);
+  --foreground: oklch(0.98 0.04 44);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -189,5 +193,11 @@ body {
   @apply border-border my-6 border-t;
 }
 .markdown-body a {
-  @apply text-primary underline;
+  @apply underline;
+}
+.markdown-body img {
+  @apply rounded-md;
+}
+.markdown-body pre {
+  @apply bg-accent overflow-scroll rounded-md text-wrap;
 }

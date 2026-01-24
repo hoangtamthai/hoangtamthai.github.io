@@ -1,6 +1,7 @@
 import { Download, ExternalLinkIcon } from "lucide-react";
 import { Link } from "react-router";
-import Header from "../components/section/header";
+import { BodyContainer } from "../components/section/body-container";
+import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 import {
   Carousel,
@@ -11,7 +12,6 @@ import {
 } from "../components/ui/carousel";
 import Typography from "../components/ui/typography";
 import Shape from "../components/visuals/shape";
-import { Badge } from "../components/ui/badge";
 
 export default function HomePage() {
   const contacts = [
@@ -91,61 +91,61 @@ export default function HomePage() {
       url: "https://photos.app.goo.gl/QuVkBAJDW76ZYvQi7",
       alt: "Heidelberg - Stuttgart - Ulm - Lindau 06.06.25",
       src: "images/album-thumbnail/IMG_20250609_112444.jpg",
-      title: "Heidelberg - Stuttgart - Ulm - Lindau 06.06.25",
+      title: "Heidelberg - Stuttgart - Ulm - Lindau 06.06.2025",
     },
     {
       url: "https://photos.app.goo.gl/hRcs2GVyCvBRigmA6",
       alt: "Hamburg",
       src: "images/album-thumbnail/IMG_20220202_162401.jpg",
-      title: "Hamburg 01.02.22",
+      title: "Hamburg 01.02.2022",
     },
     {
       url: "https://photos.app.goo.gl/hPHLwBn6NZsfimPs7",
       alt: "New Year Eve",
       src: "../images/album-thumbnail/IMG_20220101_000600.jpg",
-      title: "New Year Eve 31.12.21",
+      title: "New Year Eve 31.12.2021",
     },
     {
       url: "https://photos.app.goo.gl/X1BdpdS1vvXKjAJ87",
       alt: "BBQ",
       src: "../images/album-thumbnail/IMG_20211225_143454.jpg",
-      title: "Christmas & BBQ 25.12.21",
+      title: "Christmas & BBQ 25.12.2021",
     },
     {
       url: "https://photos.app.goo.gl/BrFWzqLHkJUCLfDeA",
       alt: "Christmas Eve",
       src: "../images/album-thumbnail/IMG_20211224_232235.jpg",
-      title: "Christmas Eve 24.12.21",
+      title: "Christmas Eve 24.12.2021",
     },
     {
       url: "https://photos.app.goo.gl/Rq6BJJSzv2HB3qo19",
       alt: "Bad Vilbel",
       src: "../images/album-thumbnail/IMG_20211219_114951.jpg",
-      title: "Bad Vilbel 19.12.21",
+      title: "Bad Vilbel 19.12.2021",
     },
     {
       url: "https://photos.app.goo.gl/vhHfa6T5HDc24XSb9",
       alt: "Ice skating",
       src: "../images/album-thumbnail/IMG_20211212_110031.jpg",
-      title: "Alter Schießplatz & Ice Skating 12.12.21",
+      title: "Alter Schießplatz & Ice Skating 12.12.2021",
     },
     {
       url: "https://photos.app.goo.gl/LtAHGM1ftsuCSbHd8",
       alt: "Paris, Luxembourg & Stuttgart",
       src: "../images/album-thumbnail/IMG_20211119_124113.jpg",
-      title: "Paris, Luxembourg & Stuttgart 18.11.21",
+      title: "Paris, Luxembourg & Stuttgart 18.11.2021",
     },
     {
       url: "https://photos.app.goo.gl/rUp66zDyBmx5YqvH9",
       alt: "Berlin",
       src: "../images/album-thumbnail/IMG_20211111_205520.jpg",
-      title: "Berlin 11.11.21",
+      title: "Berlin 11.11.2021",
     },
     {
       url: "https://photos.app.goo.gl/Z24vsuW84kYV14nv5",
       alt: "Heidenberg",
       src: "../images/album-thumbnail/IMG_20211023_154550.jpg",
-      title: "Heidenberg 23.10.21",
+      title: "Heidenberg 23.10.2021",
     },
     {
       url: "https://photos.app.goo.gl/w3aaEwPMHPEs7Fgq9",
@@ -154,22 +154,25 @@ export default function HomePage() {
       title: "Großer Feldberg 16.10.21",
     },
   ];
+  const skills = ["Java", "Spring", "TypeScript", "React", "Full Stack"];
   return (
-    <div className="mx-12 md:mx-42 lg:mx-60 dark:bg-black">
-      <div id="/" className="h-20"></div>
+    <BodyContainer>
+      <div className="h-20"></div>
       <div className="pb-5">
-        <Typography variant={"h2"}>Nice to meet you :3</Typography>
-        <Typography variant={"h2"}>
-          Take a look around to know more about me. I took a lot of photos and
-          videos in Europe and you can see them in the Media section. Enjoy this
-          zenful animation.
+        <Typography id="/" variant={"h1"}>
+          Nice to meet you :&gt;
+          <br />I like working with software and tinker with configuration.
+          Occasionally I also write about the things I love to do. Enjoy this
+          zenful animation, the colors are my favorite color palette.
         </Typography>
       </div>
       <Shape></Shape>
 
-      <div id="about" className="h-24"></div>
+      <div className="h-20"></div>
 
-      <Typography variant={"h1"}>About me</Typography>
+      <Typography id="about" variant={"h2"} affects={"bracket"}>
+        About me
+      </Typography>
       <div className="h-6"></div>
       <div className="lg:grid lg:grid-cols-3">
         <div className="gap-2 lg:col-span-2 lg:flex lg:grow-[2] lg:flex-col lg:justify-around">
@@ -188,27 +191,18 @@ export default function HomePage() {
             at Vietnamese-German University.
           </Typography>
           <div className="mt-2">
-            <Typography variant={"h2"} className="text-center">
+            <Typography variant={"h3"} className="text-center">
               Skills
             </Typography>
-            <div className="flex justify-center">
-              <Badge variant="outline" className="mr-2 mb-2">
-                Java
-              </Badge>
-              <Badge variant="outline" className="mr-2 mb-2">
-                Spring Boot
-              </Badge>
-              <Badge variant="outline" className="mr-2 mb-2">
-                TypeScript
-              </Badge>
-              <Badge variant="outline" className="mr-2 mb-2">
-                ReactJS
-              </Badge>
+            <div className="flex justify-center gap-2">
+              {skills.map((skill) => {
+                return <Badge variant="outline">{skill}</Badge>;
+              })}
             </div>
           </div>
           <div className="h-2 sm:hidden"></div>
           <div>
-            <Typography variant={"h2"} className="text-center">
+            <Typography variant={"h3"} className="text-center">
               Contacts
             </Typography>
             <div className="flex flex-row flex-wrap justify-center gap-5 pb-5">
@@ -221,7 +215,7 @@ export default function HomePage() {
               })}
               <Button
                 variant={"outline"}
-                className="my-auto flex justify-center"
+                className="my-auto flex h-12 justify-center"
               >
                 <a
                   className="bg-gray w-fit text-center"
@@ -240,8 +234,10 @@ export default function HomePage() {
         />
       </div>
 
-      <div id="experience" className="h-24"></div>
-      <Typography variant={"h1"}>Experience</Typography>
+      <div className="h-20"></div>
+      <Typography id="experience" variant={"h2"} affects={"bracket"}>
+        Experience
+      </Typography>
       <Typography variant={"p"}>
         I have worked at{" "}
         <Link
@@ -249,7 +245,8 @@ export default function HomePage() {
           target="_blank"
           className="hover:cursor text-blue-500 underline"
         >
-          UNIT Technology Corporation <ExternalLinkIcon className="inline" />
+          UNIT Technology Corporation{" "}
+          <ExternalLinkIcon className="inline size-4" />
         </Link>{" "}
         for about 2 years as a Java Software Developer. I am also the creator of
         the website for{" "}
@@ -258,13 +255,15 @@ export default function HomePage() {
           target="_blank"
           className="hover:cursor text-yellow-500 underline"
         >
-          Beestudious <ExternalLinkIcon className="inline" />
+          Beestudious <ExternalLinkIcon className="inline size-4" />
         </Link>
         .
       </Typography>
 
-      <div id="projects" className="h-24"></div>
-      <Typography variant={"h1"}>Projects</Typography>
+      <div className="h-20"></div>
+      <Typography id="projects" variant={"h2"} affects={"bracket"}>
+        Projects
+      </Typography>
       <Typography variant={"p"}>
         These are my projects that I made by myself or with some of my friends.
         If you find them interesting leave a star at GitHub. Thank you :&gt;
@@ -278,11 +277,11 @@ export default function HomePage() {
                 key={project.url}
                 className="flex flex-col justify-between gap-5 lg:basis-1/3"
               >
-                <div></div>
+                {/* <div></div> */}
                 <a href={project.url} target="_blank">
                   <img
                     alt={project.alt}
-                    className="mx-auto h-52 rounded-xl"
+                    className="mx-auto h-52 rounded-md object-cover"
                     src={project.src}
                   />
                 </a>
@@ -299,7 +298,9 @@ export default function HomePage() {
       <div className="flex flex-row flex-wrap justify-around gap-16"></div>
 
       <div id="media" className="h-24"></div>
-      <Typography variant={"h1"}>Media</Typography>
+      <Typography variant={"h2"} affects={"bracket"}>
+        Media
+      </Typography>
       <Typography variant={"p"}>
         Here are some of my albums from trips around Europe
       </Typography>
@@ -309,7 +310,11 @@ export default function HomePage() {
             return (
               <CarouselItem key={album.url} className="lg:basis-1/3">
                 <a href={album.url} target="_blank">
-                  <img className="rounded-lg" src={album.src} alt={album.alt} />
+                  <img
+                    className="rounded-md hover:transform-fill"
+                    src={album.src}
+                    alt={album.alt}
+                  />
                 </a>
                 <Typography variant={"h4"} className="text-center">
                   {album.title}
@@ -321,6 +326,6 @@ export default function HomePage() {
         <CarouselNext />
         <CarouselPrevious />
       </Carousel>
-    </div>
+    </BodyContainer>
   );
 }
