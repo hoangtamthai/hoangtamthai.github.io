@@ -29,7 +29,7 @@ export async function loader({ request }: { request: Request }) {
 
   const rssItems = await Promise.all(
     validPosts.map(async (post) => {
-      const postUrl = `${baseUrl}/log/${post.year}/${post.month}/${post.day}/${post.slug}`;
+      const postUrl = `${baseUrl}/blog/${post.year}/${post.month}/${post.day}/${post.slug}`;
       const pubDate = post.date.toUTCString();
 
       // Convert markdown content to HTML (basic conversion)
@@ -67,7 +67,7 @@ ${categoryTags}
   <channel>
     <title>Tam Thai (B)log</title>
     <description>Tam Thai's personal blog and log</description>
-    <link>${baseUrl}/log</link>
+    <link>${baseUrl}/blog</link>
     <atom:link href="${baseUrl}/index.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>

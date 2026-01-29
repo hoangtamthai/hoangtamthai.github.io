@@ -41,11 +41,11 @@ export default function Header() {
     { url: "/#experience", title: "Experience" },
     { url: "/#projects", title: "Projects" },
     { url: "/#media", title: "Media" },
-    { url: "/log", title: "(B)log" },
+    { url: "/blog", title: "(B)log" },
   ];
   function Menus() {
     return links.map((link) => {
-      if (link.url === "/log") {
+      if (link.url === "/blog") {
         return (
           <Link
             to={link.url}

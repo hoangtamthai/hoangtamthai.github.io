@@ -21,10 +21,6 @@ export async function loader({ params }: Route.LoaderArgs) {
   const { year, month, day, slug } = params;
   const title = slugToTitle(slug);
   const post = await getBlogPost(year, month, day, title);
-  // const location = useLocation();
-  // console.log(location);
-  // const origin = window.location.origin;
-  // console.log(origin);
   const host = "localhost";
 
   if (!post) {
@@ -101,7 +97,7 @@ export default function BlogPost() {
 export function ErrorBoundary() {
   return (
     <div className="mx-12 md:mx-42 lg:mx-60 dark:bg-black">
-      <div id="/log" className="h-20"></div>
+      <div id="/blog" className="h-20"></div>
       <Typography variant={"h1"}>Blog Post Not Found</Typography>
       <Typography variant={"p"}>
         The requested blog post doesn't exist.

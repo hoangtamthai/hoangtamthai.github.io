@@ -25,7 +25,7 @@ export default function Blog() {
   return (
     <BodyContainer>
       <div className="h-20"></div>
-      <Typography id="/log" variant={"h1"} affects={"bracket"}>
+      <Typography id="/blog" variant={"h1"} affects={"bracket"}>
         (B)log
       </Typography>
       <Typography variant={"p"}>
@@ -50,7 +50,7 @@ function BlogList({ posts }: { posts: Awaited<ReturnType<typeof loader>> }) {
       {posts.map((post) => (
         <Link
           key={post.path}
-          to={`/log/${post.year}/${post.month}/${post.day}/${post.slug}`}
+          to={`/blog/${post.year}/${post.month}/${post.day}/${post.slug}`}
           className="block rounded-md border-2 border-black p-4 transition-colors hover:border-gray-500"
         >
           <Typography variant={"h4"} className="mb-1">
