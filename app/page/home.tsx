@@ -175,14 +175,14 @@ export default function HomePage() {
       </Typography>
       <div className="h-6"></div>
       <div className="lg:grid lg:grid-cols-3">
-        <div className="gap-2 lg:col-span-2 lg:flex lg:grow-[2] lg:flex-col lg:justify-around">
+        <div className="gap-2 lg:col-span-2 lg:flex lg:grow-2 lg:flex-col lg:justify-around">
           <Typography className="lg:pr-5" variant={"p"}>
             Hey, I am Tam from{" "}
-            <span className="bg-gradient-to-r from-red-600 from-30% via-yellow-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-red-600 from-30% via-yellow-500 to-red-600 bg-clip-text text-transparent">
               Vietnam
             </span>
             , based in{" "}
-            <span className="bg-gradient-to-r from-black via-red-600 to-yellow-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-black via-red-600 to-yellow-500 bg-clip-text text-transparent">
               Germany
             </span>
             . Currently I am a Master's Student in Computer Science at Technical
@@ -229,8 +229,9 @@ export default function HomePage() {
           </div>
         </div>
         <img
+          alt="Personal jmage"
           src="images/personal.jpg"
-          className="mx-auto h-full w-fit rounded-lg object-cover lg:col-span-1 lg:grow-[1]"
+          className="mx-auto h-full w-fit rounded-lg object-cover lg:col-span-1 lg:grow"
         />
       </div>
 

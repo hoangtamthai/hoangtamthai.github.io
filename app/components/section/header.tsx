@@ -85,7 +85,7 @@ export default function Header() {
       </div>
       <div id="nav">
         <Sheet>
-          <SheetTrigger className="h-10 sm:hidden">
+          <SheetTrigger aria-label="Menu" className="h-10 sm:hidden">
             <Menu />
           </SheetTrigger>
           <SheetContent className="w-56 rounded-md sm:w-[1/3]">

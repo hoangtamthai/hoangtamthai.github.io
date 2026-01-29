@@ -1,6 +1,6 @@
 import type { Config } from "@react-router/dev/config";
 import { getAllBlogPosts } from "./app/lib/blog";
-
+import { vercelPreset } from "@vercel/react-router/vite";
 export default {
   // Server-side render by default, to enable SPA mode set this to `false`
   ssr: true,
@@ -13,4 +13,5 @@ export default {
 
     return [...paths, ...postPaths];
   },
+  presets: [vercelPreset()],
 } satisfies Config;
