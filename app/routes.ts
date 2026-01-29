@@ -4,4 +4,5 @@ export default [
   index("routes/home.tsx"),
   route("log", "routes/log.tsx"),
   route("log/:year/:month/:day/:slug", "routes/blog-post.tsx"),
+  route("rss.xml", "routes/rss.tsx"),
 ] satisfies RouteConfig;

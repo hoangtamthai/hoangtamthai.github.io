@@ -90,7 +90,7 @@ export default function BlogPost() {
         </div>
       </Typography>
       <div className="h-6"></div>
-      <div
+      <article
         className="markdown-body"
         dangerouslySetInnerHTML={{ __html: html }}
       />

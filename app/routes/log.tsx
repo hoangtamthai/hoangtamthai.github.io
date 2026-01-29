@@ -4,6 +4,8 @@ import { formatDate, getAllBlogPosts } from "../lib/blog";
 import type { Route } from "./+types/home";
 import { BodyContainer } from "../components/section/body-container";
 import { Badge } from "../components/ui/badge";
+import { Rss } from "lucide-react";
+import { Button } from "../components/ui/button";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -30,6 +32,13 @@ export default function Blog() {
         Welcome to my (B)log, a combination of blog and log (short, bullet
         styles) about my experiences and work.
       </Typography>
+      <div className="mt-4 mb-2">
+        <Link reloadDocument to="/rss.xml">
+          <Button variant={"outline"}>
+            <Rss className="h-4 w-4" />
+          </Button>
+        </Link>
+      </div>
       <BlogList posts={posts} />
     </BodyContainer>
   );

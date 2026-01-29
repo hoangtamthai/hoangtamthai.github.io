@@ -40,6 +40,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
         <Meta />
         <link rel="icon" href="/logo.png" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Tam Thai (B)log RSS Feed"
+          href="/rss.xml"
+        />
         <Links />
       </head>
       <body>

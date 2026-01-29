@@ -191,7 +191,7 @@ a {
   @apply border-border my-6 border-t;
 }
 .markdown-body a {
-  @apply underline;
+  @apply visited:text-muted-foreground not-visited:text-accent-foreground hover:text-muted-foreground underline hover:rounded-md hover:outline-1 hover:outline-offset-4;
 }
 .markdown-body img {
   @apply rounded-md;
