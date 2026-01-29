@@ -30,7 +30,8 @@ export default function Blog() {
       </Typography>
       <Typography variant={"p"}>
         Welcome to my (B)log, a combination of blog and log (short, bullet
-        styles) about my experiences and work.
+        styles) about the things I like to do, which are mostly about tech,
+        self-hosting, configurations, and tools I use.
       </Typography>
       <div className="mt-4 mb-2">
         <Link reloadDocument to="/rss.xml">
@@ -58,7 +59,7 @@ function BlogList({ posts }: { posts: Awaited<ReturnType<typeof loader>> }) {
           </Typography>
           <Typography
             variant={"p"}
-            className="text-muted-foreground flex items-center text-sm"
+            className="text-muted-foreground mt-0 flex items-center text-sm"
           >
             <span>{formatDate(post.date)}</span>
             <div className="mx-1">
