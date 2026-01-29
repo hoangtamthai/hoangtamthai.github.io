@@ -63,19 +63,19 @@ export default function HomePage() {
     },
     {
       url: "https://github.com/HuMiTriet/VGU_Project_Berlin",
-      alt: "License Detection",
+      alt: "Real As-stated",
       src: "../images/project-thumbnail/Dashboad.png",
       title: "Real As-stated",
     },
     {
       url: "https://github.com/HuMiTriet/VGU-Eureka",
-      alt: "License Detection",
+      alt: "Etoet",
       src: "../images/project-thumbnail/Etoet.png",
       title: "Etoet",
     },
     {
       url: "https://github.com/hoangtamthai/TimeScheduler",
-      alt: "TimeScheduler",
+      alt: "Time Scheduler",
       src: "https://raw.githubusercontent.com/hoangtamthai/TimeScheduler/main/Tisch/src/main/resources/TimeSchedulerIcon.png",
       title: "Time Scheduler",
     },
@@ -243,7 +243,7 @@ export default function HomePage() {
         <Link
           to="https://unit.com.vn/"
           target="_blank"
-          className="hover:cursor text-blue-500 underline"
+          className="hover:cursor text-blue-600 underline dark:text-blue-300"
         >
           UNIT Technology Corporation{" "}
           <ExternalLinkIcon className="inline size-4" />
@@ -253,7 +253,7 @@ export default function HomePage() {
         <Link
           to="https://beestudious.org"
           target="_blank"
-          className="hover:cursor text-yellow-500 underline"
+          className="hover:cursor text-yellow-600 underline dark:text-yellow-300"
         >
           Beestudious <ExternalLinkIcon className="inline size-4" />
         </Link>

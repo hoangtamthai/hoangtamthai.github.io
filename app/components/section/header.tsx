@@ -74,7 +74,13 @@ export default function Header() {
     >
       <div>
         <Link to="/">
-          <img id="logo" className="h-8" src="/images/logo_transparent.png" />
+          <img
+            id="logo"
+            alt="Tam Logo"
+            aria-label="Tam Logo"
+            className="h-8"
+            src="/images/logo_transparent.png"
+          />
         </Link>
       </div>
       <div id="nav">
