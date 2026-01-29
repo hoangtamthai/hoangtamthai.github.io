@@ -199,3 +199,6 @@ a {
 .markdown-body pre {
   @apply bg-accent overflow-scroll rounded-md text-wrap;
 }
+.markdown-body code {
+  @apply overflow-scroll rounded-xs text-wrap outline-1;
+}
