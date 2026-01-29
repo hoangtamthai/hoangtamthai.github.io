@@ -47,16 +47,21 @@ function BlogList({ posts }: { posts: Awaited<ReturnType<typeof loader>> }) {
           <Typography variant={"h4"} className="mb-1">
             {post.title}
           </Typography>
-          <Typography variant={"p"} className="text-muted-foreground text-sm">
-            {formatDate(post.date)}
-            {" · "}
-            {post.properties!["tags"]?.map((tag: string) => {
-              return (
-                <Badge variant="outline" className="m-1">
-                  #{tag}
-                </Badge>
-              );
-            })}
+          <Typography
+            variant={"p"}
+            className="text-muted-foreground flex items-center text-sm"
+          >
+            <span>{formatDate(post.date)}</span>
+            <div className="mx-1">
+              <span className="w-1">{"|"}</span>
+              {post.properties!["tags"]?.map((tag: string) => {
+                return (
+                  <Badge variant="outline" className="m-0.5">
+                    #{tag}
+                  </Badge>
+                );
+              })}
+            </div>
           </Typography>
         </Link>
       ))}

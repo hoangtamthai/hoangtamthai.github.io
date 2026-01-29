@@ -73,16 +73,21 @@ export default function BlogPost() {
       <Typography variant={"h2"} affects={"bracket"}>
         {title}
       </Typography>
-      <Typography variant={"p"} className="text-muted-foreground">
-        {formatDate(date)}
-        {" · "}
-        {tags?.map((tag: string) => {
-          return (
-            <Badge variant="outline" className="m-1">
-              #{tag}
-            </Badge>
-          );
-        })}
+      <Typography
+        variant={"p"}
+        className="text-muted-foreground flex flex-row items-center justify-start"
+      >
+        <span>{formatDate(date)}</span>
+        <div className="mx-1">
+          <span className="w-1">{"|"}</span>
+          {tags?.map((tag: string) => {
+            return (
+              <Badge variant="outline" className="m-1">
+                #{tag}
+              </Badge>
+            );
+          })}
+        </div>
       </Typography>
       <div className="h-6"></div>
       <div

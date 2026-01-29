@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import { Menu, Sun, Moon } from "lucide-react";
 import { Link } from "react-router";
 import { Button } from "../ui/button";
 import {
@@ -9,8 +9,32 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check for saved theme preference or default to system preference
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+
+    const shouldUseDark =
+      savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+
+    setIsDark(shouldUseDark);
+    document.documentElement.classList.toggle("dark", shouldUseDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    document.documentElement.classList.toggle("dark", newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+  };
+
   const links = [
     { url: "/", title: "Home" },
     { url: "/#about", title: "About" },
@@ -23,7 +47,11 @@ export default function Header() {
     return links.map((link) => {
       if (link.url === "/log") {
         return (
-          <Link to={link.url} className="mr-10 ml-auto" key={link.url}>
+          <Link
+            to={link.url}
+            className="mr-10 ml-auto sm:m-auto"
+            key={link.url}
+          >
             <Button variant={"outline"}>{link.title}</Button>
           </Link>
         );
@@ -32,7 +60,7 @@ export default function Header() {
         <Link
           to={link.url}
           key={link.url}
-          className="mr-10 ml-auto hover:underline sm:m-auto"
+          className="mr-10 ml-auto first:mt-3 hover:underline sm:m-auto sm:first:mt-auto"
         >
           {link.title}
         </Link>
@@ -42,7 +70,7 @@ export default function Header() {
   return (
     <div
       id="header"
-      className="fixed top-0 left-0 z-10 flex max-h-10 w-full items-center justify-between px-4 py-1 opacity-90 shadow-md backdrop-blur-3xl"
+      className="bg-background fixed top-0 left-0 z-10 flex max-h-10 w-full items-center justify-between px-4 py-1 opacity-95 shadow-md"
     >
       <div>
         <Link to="/">
@@ -54,12 +82,25 @@ export default function Header() {
           <SheetTrigger className="h-10 sm:hidden">
             <Menu />
           </SheetTrigger>
-          <SheetContent className="w-56 sm:w-[1/3]">
+          <SheetContent className="w-56 rounded-md sm:w-[1/3]">
             <SheetHeader>
-              <SheetTitle className="mr-10 ml-auto">Menu</SheetTitle>
+              <SheetTitle className="mt-2 mr-10 ml-auto">Menu</SheetTitle>
               <SheetDescription>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-5">
                   <Menus />
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={toggleTheme}
+                    className="mr-10 ml-auto"
+                    aria-label="Toggle theme"
+                  >
+                    {isDark ? (
+                      <Moon className="m-auto h-5 w-5" />
+                    ) : (
+                      <Sun className="m-auto h-5 w-5" />
+                    )}
+                  </Button>
                 </div>
               </SheetDescription>
             </SheetHeader>
@@ -69,7 +110,19 @@ export default function Header() {
           <Menus />
         </div>
       </div>
-      <div className="hidden sm:block"></div>
+      <Button
+        variant="outline"
+        size="icon"
+        onClick={toggleTheme}
+        className="hidden sm:block"
+        aria-label="Toggle theme"
+      >
+        {isDark ? (
+          <Moon className="m-auto h-5 w-5" />
+        ) : (
+          <Sun className="m-auto h-5 w-5" />
+        )}
+      </Button>
     </div>
   );
 }
