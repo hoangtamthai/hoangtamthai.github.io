@@ -196,7 +196,11 @@ export default function HomePage() {
             </Typography>
             <div className="flex justify-center gap-2">
               {skills.map((skill) => {
-                return <Badge variant="outline">{skill}</Badge>;
+                return (
+                  <Badge key={skill} variant="outline">
+                    {skill}
+                  </Badge>
+                );
               })}
             </div>
           </div>
@@ -213,18 +217,14 @@ export default function HomePage() {
                   </Link>
                 );
               })}
-              <Button
-                variant={"outline"}
-                className="my-auto flex h-12 justify-center"
-              >
-                <a
-                  className="bg-gray w-fit text-center"
-                  href="/pdf/Resume.pdf"
-                  download="Resume"
+              <a className="bg-gray" href="/pdf/Resume.pdf" download="Resume">
+                <Button
+                  variant={"outline"}
+                  className="flex h-12 justify-center"
                 >
                   Resume <Download className="inline" />
-                </a>
-              </Button>
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -254,7 +254,7 @@ export default function HomePage() {
         <Link
           to="https://beestudious.org"
           target="_blank"
-          className="hover:cursor text-yellow-600 underline dark:text-yellow-300"
+          className="hover:cursor text-yellow-700 underline dark:text-yellow-300"
         >
           Beestudious <ExternalLinkIcon className="inline size-4" />
         </Link>

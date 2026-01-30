@@ -28,8 +28,8 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
+    <html role="main" lang="en">
+      <head role="head">
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="og:title" content="Tam Thai Website" />
@@ -53,7 +53,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           data-website-id="cd8b2767-003c-487d-b46b-cefca5e57130"
         ></script>
       </head>
-      <body>
+      <body role="body">
         <Header />
         {children}
         <Footer />
