@@ -53,7 +53,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           data-website-id="cd8b2767-003c-487d-b46b-cefca5e57130"
         ></script>
       </head>
-      <body role="body">
+      <body>
         <Header />
         {children}
         <Footer />
