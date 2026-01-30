@@ -35,7 +35,7 @@ export default function Blog() {
       </Typography>
       <div className="mt-4 mb-2">
         <Link reloadDocument to="/rss.xml">
-          <Button variant={"outline"}>
+          <Button data-umami-event="RSS" variant={"outline"}>
             <Rss className="h-4 w-4" />
           </Button>
         </Link>
