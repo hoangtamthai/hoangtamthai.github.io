@@ -52,7 +52,7 @@ function BlogList({ posts }: { posts: Awaited<ReturnType<typeof loader>> }) {
         <Link
           key={post.path}
           to={`/blog/${post.year}/${post.month}/${post.day}/${post.slug}`}
-          className="block rounded-md border-2 border-black p-4 transition-colors hover:border-gray-500"
+          className="border-foreground hover:border-muted-foreground block rounded-md border-2 p-4 transition-colors"
         >
           <Typography variant={"h4"} className="mb-1">
             {post.title}
