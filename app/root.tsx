@@ -47,6 +47,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
           href="/rss.xml"
         />
         <Links />
+        <script
+          defer
+          src="https://umami-fs.tamthai.de/script.js"
+          data-website-id="cd8b2767-003c-487d-b46b-cefca5e57130"
+        ></script>
       </head>
       <body>
         <Header />
