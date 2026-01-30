@@ -16,7 +16,7 @@ import Shape from "../components/visuals/shape";
 export default function HomePage() {
   const contacts = [
     {
-      url: "https://facebook.com/thaihoangtam.306",
+      url: "https://facebook.com/tamthai.de",
       alt: "My Facebook",
       src: "images/icon/FacebookIcon.png",
     },
