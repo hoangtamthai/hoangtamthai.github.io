@@ -26,6 +26,11 @@ export default function HomePage() {
       src: "images/icon/InstagramIcon.png",
     },
     {
+      url: "https://bsky.app/profile/tamthai.de",
+      alt: "My Bluesky",
+      src: "images/icon/Bluesky.png",
+    },
+    {
       url: "https://linkedin.com/in/hoangtamthai",
       alt: "My linkedin",
       src: "images/icon/LinkedinIcon.png",
