@@ -7,7 +7,7 @@ import { BlueskyComment } from "../components/ui/bluesky-comment";
 import Typography from "../components/ui/typography";
 import { formatDate, getBlogPost } from "../lib/blog";
 import type { Route } from "./+types/blog-post";
-import type { BlueskyProp } from "../lib/bluesky-comment";
+import type { BlueskyProp } from "../lib/bluesky";
 
 export function meta({ loaderData }: Route.MetaArgs) {
   return [

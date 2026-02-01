@@ -2,7 +2,7 @@ import { cn } from "~/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
-const styleDefault = "z-2 text-xl bg-background";
+const styleDefault = "z-2 text-xl";
 export const typographyVariants = cva(styleDefault, {
   variants: {
     variant: {
@@ -44,7 +44,10 @@ const Typography = React.forwardRef<HTMLHeadingElement, TypographyProps>(
         <div className="relative w-fit">
           <div className="bg-foreground absolute -top-1 -left-1 h-5 w-5 pt-2 pb-2"></div>
           <Comp
-            className={cn(typographyVariants({ variant, affects, className }))}
+            className={cn(
+              "bg-background",
+              typographyVariants({ variant, affects, className }),
+            )}
             ref={ref}
             {...props}
           />

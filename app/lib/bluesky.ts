@@ -173,6 +173,9 @@ export function formatBlueskyDate(dateString: string): string {
   });
 }
 
-export function generateBlueskyProfileUrl(handle: string): string {
+export function toBlueskyProfileUrl(handle: string): string {
   return `https://bsky.app/profile/${handle}`;
+}
+export function toBlueskyPostUrl(handle: string, uri: string): string {
+  return `https://bsky.app/profile/${handle}/post/${uri.split("/").pop()}`;
 }

@@ -1,19 +1,14 @@
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { ExternalLink, Heart, MessageSquare, User } from "lucide-react";
-import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import {
   fetchBlueskyComments,
   formatBlueskyDate,
-  generateBlueskyProfileUrl as toBlueskyProfileUrl,
+  toBlueskyPostUrl,
+  toBlueskyProfileUrl,
   type BlueskyComment,
   type BlueskyProp,
-  type BlueskyThread,
-} from "~/lib/bluesky-comment";
+} from "~/lib/bluesky";
 import { cn } from "~/lib/utils";
 import { Button } from "./button";
 import Typography from "./typography";
@@ -75,83 +70,99 @@ function CommentItem({ comment, depth }: CommentItemProps) {
       style={{ marginLeft: indent }}
       className={cn(`border-l-bluesky border-l-2`)}
     >
-      <div className="flex items-start gap-1 sm:gap-2">
-        <Avatar
-          avatar={comment.author.avatar}
-          handle={comment.author.handle}
-          displayName={comment.author.displayName}
-        />
+      <Link
+        className="select-text"
+        onDragStart={(e) => e.preventDefault()}
+        to={toBlueskyPostUrl(comment.author.handle, comment.uri)}
+      >
+        <div className="hover:bg-accent hover:text-accent-foreground flex items-start gap-1 rounded-r-md hover:outline sm:gap-2">
+          <Avatar
+            avatar={comment.author.avatar}
+            handle={comment.author.handle}
+            displayName={comment.author.displayName}
+          />
 
-        <div>
-          {comment.author.displayName ? (
-            <div className="flex flex-col sm:flex-row sm:gap-2">
+          <div>
+            {comment.author.displayName ? (
+              <div className="flex flex-col sm:flex-row sm:gap-2">
+                <Link
+                  to={profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground text-sm font-medium hover:underline sm:text-base"
+                >
+                  {comment.author.displayName}
+                </Link>
+                <Link
+                  to={profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground text-sm font-medium sm:text-base"
+                >
+                  <span className="text-muted-foreground text-xs sm:text-sm">
+                    @{comment.author.handle}
+                  </span>
+                </Link>
+              </div>
+            ) : (
               <Link
                 to={profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground text-sm font-medium hover:underline sm:text-base"
               >
-                {comment.author.displayName}
+                {comment.author.handle}
               </Link>
-              <Link
-                to={profileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground text-sm font-medium sm:text-base"
-              >
-                <span className="text-muted-foreground text-xs sm:text-sm">
-                  @{comment.author.handle}
-                </span>
-              </Link>
+            )}
+            <div className="flex flex-col flex-wrap gap-1 sm:flex-row sm:items-center sm:gap-2">
+              <div className="flex items-center gap-1 sm:gap-2"></div>
             </div>
-          ) : (
-            <Link
-              to={profileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground text-sm font-medium hover:underline sm:text-base"
-            >
-              {comment.author.handle}
-            </Link>
-          )}
-          <div className="flex flex-col flex-wrap gap-1 sm:flex-row sm:items-center sm:gap-2">
-            <div className="flex items-center gap-1 sm:gap-2"></div>
-          </div>
 
-          <div className="mt-2 mr-8 text-sm leading-relaxed wrap-break-word whitespace-pre-wrap">
-            {comment.text}
-          </div>
-          {comment.fullsizes?.map((thumb) => (
-            <img className="max-w-2/3 rounded-md" src={thumb} key={thumb}></img>
-          ))}
-
-          <div className="text-muted-foreground mt-3 flex items-center gap-4 text-xs">
-            <div className="flex gap-1">
-              <Heart size={16} className="my-auto inline" />
-              <Typography variant={"small"} className="my-auto text-center">
-                {comment.likeCount}
-              </Typography>
+            <div className="mt-2 text-sm leading-relaxed wrap-break-word whitespace-pre-wrap">
+              {comment.text}
             </div>
-            {comment.replyCount > 0 && (
+            {comment.fullsizes?.map((thumb) => (
+              <img
+                className="max-w-2/3 rounded-md"
+                src={thumb}
+                key={thumb}
+              ></img>
+            ))}
+
+            <div className="text-muted-foreground mt-3 flex items-center gap-4 text-xs">
               <div className="flex gap-1">
-                <MessageSquare size={16} className="my-auto inline w-4" />
-                <Typography variant={"small"} className="m-auto">
-                  {comment.replyCount}
+                <Heart size={16} className="my-auto inline" />
+                <Typography variant={"small"} className="my-auto text-center">
+                  {comment.likeCount}
                 </Typography>
               </div>
-            )}
-            <span className="text-muted-foreground my-auto text-xs sm:text-sm">
-              {formatBlueskyDate(comment.createdAt)}
-            </span>
+              {comment.replyCount > 0 && (
+                <div className="flex gap-1">
+                  <MessageSquare size={16} className="my-auto inline w-4" />
+                  <Typography variant={"small"} className="m-auto">
+                    {comment.replyCount}
+                  </Typography>
+                </div>
+              )}
+              <Typography
+                variant={"small"}
+                className="text-muted-foreground my-auto"
+              >
+                {formatBlueskyDate(comment.createdAt)}
+              </Typography>
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
       {depth < MAX_DEPTH ? (
         comment.replies?.map((reply) => (
           <CommentItem key={reply.cid} comment={reply} depth={depth + 1} />
         ))
       ) : (
-        <Link to={comment.uri} className="ml-4 underline">
+        <Link
+          to={toBlueskyPostUrl(comment.author.handle, comment.uri)}
+          className="ml-4 underline"
+        >
           View more comments <ExternalLink className="inline w-3" />
         </Link>
       )}
@@ -250,45 +261,59 @@ export function BlueskyComment({
         <div className="space-y-6">
           <div key={thread.root.uri} className="space-y-4">
             <div className="border-l-bluesky border-l-2">
-              <div className="mb-2 flex items-center gap-1 sm:gap-2">
-                <Avatar
-                  avatar={thread.root.author.avatar}
-                  handle={thread.root.author.handle}
-                  displayName={thread.root.author.displayName}
-                />
-                {thread.root.author.displayName ? (
-                  <div className="flex flex-col">
-                    <Link
-                      to={toBlueskyProfileUrl(thread.root.author.handle)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium hover:underline"
-                    >
-                      {thread.root.author.displayName}
-                    </Link>
-                    <Link
-                      to={toBlueskyProfileUrl(thread.root.author.handle)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground text-sm font-medium"
-                    >
-                      @{thread.root.author.handle}
-                    </Link>
-                  </div>
-                ) : (
-                  <Link
-                    to={toBlueskyProfileUrl(thread.root.author.handle)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium"
-                  >
-                    @{thread.root.author.handle}
-                  </Link>
+              <Link
+                className="select-text"
+                onDragStart={(e) => e.preventDefault()}
+                to={toBlueskyPostUrl(
+                  thread.root.author.handle,
+                  thread.root.uri,
                 )}
-              </div>
-              <Typography variant="p" className="pl-2 text-sm leading-relaxed">
-                {thread.root.text}
-              </Typography>
+              >
+                <div className="hover:bg-accent hover:text-accent-foreground rounded-r-md">
+                  <div className="mb-2 flex items-center gap-1 sm:gap-2">
+                    <Avatar
+                      avatar={thread.root.author.avatar}
+                      handle={thread.root.author.handle}
+                      displayName={thread.root.author.displayName}
+                    />
+                    {thread.root.author.displayName ? (
+                      <div className="flex flex-col">
+                        <Link
+                          to={toBlueskyProfileUrl(thread.root.author.handle)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-medium hover:underline"
+                        >
+                          {thread.root.author.displayName}
+                        </Link>
+                        <Link
+                          to={toBlueskyProfileUrl(thread.root.author.handle)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground text-sm font-medium"
+                        >
+                          @{thread.root.author.handle}
+                        </Link>
+                      </div>
+                    ) : (
+                      <Link
+                        to={toBlueskyProfileUrl(thread.root.author.handle)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium"
+                      >
+                        @{thread.root.author.handle}
+                      </Link>
+                    )}
+                  </div>
+                  <Typography
+                    variant="p"
+                    className="px-2 text-sm leading-relaxed"
+                  >
+                    {thread.root.text}
+                  </Typography>
+                </div>
+              </Link>
             </div>
 
             {/* Replies */}
@@ -296,7 +321,7 @@ export function BlueskyComment({
               <div className="space-y-3">
                 <div
                   id="thread-properties"
-                  className="text-muted-foreground flex gap-5"
+                  className="text-muted-foreground flex gap-4"
                 >
                   <div className="my-auto flex gap-1">
                     <Heart size={20} />
