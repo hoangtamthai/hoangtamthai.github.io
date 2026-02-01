@@ -3,6 +3,11 @@ tags:
   - blog
   - rss
   - self-hosting
+bluesky:
+  post_id:
+    - 3mdqzixymlc23
+  handle:
+    - tamthai.de
 ---
 
 I have been aware of RSS feeds for a while now, but I was not entirely sure how or why people use them.

@@ -11,6 +11,7 @@ export const typographyVariants = cva(styleDefault, {
       h3: "scroll-m-20 text-3xl p-2 font-semibold tracking-tight",
       h4: "scroll-m-20 text-xl font-semibold tracking-tight",
       p: "leading-7 [&:not(:first-child)]:mt-4",
+      small: "text-xs sm:text-sm",
       // blockquote: "mt-6 border-l-2 pl-6 italic",
       // list: "my-6 ml-6 list-disc [&>li]:mt-2",
     },
@@ -31,7 +32,8 @@ export const typographyVariants = cva(styleDefault, {
 });
 
 export interface TypographyProps
-  extends React.HTMLAttributes<HTMLHeadingElement>,
+  extends
+    React.HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof typographyVariants> {}
 
 const Typography = React.forwardRef<HTMLHeadingElement, TypographyProps>(

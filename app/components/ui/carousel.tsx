@@ -183,7 +183,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute ml-2 size-8 rounded-md",
+        "absolute ml-3 size-8 rounded-md",
         orientation === "horizontal"
           ? "top-1/2 -left-12 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -213,7 +213,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute mr-2 size-8 rounded-md",
+        "absolute mr-3 size-8 rounded-md",
         orientation === "horizontal"
           ? "top-1/2 -right-12 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
