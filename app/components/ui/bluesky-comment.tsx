@@ -1,3 +1,8 @@
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
 import { ExternalLink, Heart, MessageSquare, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
@@ -158,45 +163,20 @@ export function BlueskyComment({
   blueskyProp,
   className,
 }: BlueskyCommentSectionProps) {
-  const [thread, setThreads] = useState<BlueskyThread>();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const atUrl = `at://${blueskyProp?.handle}/app.bsky.feed.post/${blueskyProp?.post_id}`;
   const postUrl = `https://bsky.app/profile/${blueskyProp?.handle}/post/${blueskyProp?.post_id}`;
+  const {
+    data: thread,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["bluesky-comments", atUrl],
+    queryFn: () => fetchBlueskyComments(atUrl),
+    refetchInterval: 30000, // Polling every 30 seconds
+    refetchOnWindowFocus: true, // Refresh when user clicks back onto the tab
+  });
 
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadComments = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const commentThreads = await fetchBlueskyComments(atUrl);
-        if (isMounted && commentThreads) {
-          setThreads(commentThreads);
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError(
-            err instanceof Error ? err.message : "Failed to load comments",
-          );
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    loadComments();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [atUrl]);
-
-  if (loading) {
+  if (isLoading) {
     return (
       <section
         className={cn("mt-8", className)}
@@ -230,7 +210,7 @@ export function BlueskyComment({
             variant="p"
             className="text-muted-foreground mt-2 text-sm"
           >
-            {error}
+            {error.message}
           </Typography>
         </div>
       </section>

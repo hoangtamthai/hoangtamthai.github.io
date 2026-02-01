@@ -32,6 +32,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
   const html = await marked.use(markedFootnote()).parse(post.content);
   const tags: string[] | undefined = post.properties["tags"];
   const blueskyProp: BlueskyProp = post.properties["bluesky"];
+
   // This regex matches:
   // 1. The opening <a> tag and all its attributes
   // 2. The inner text/html of the link
