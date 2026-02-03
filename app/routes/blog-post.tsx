@@ -41,7 +41,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
   }
 
   const html = await marked.use(markedFootnote()).parse(post.content);
-  const tags: string[] | undefined = post.properties["tags"];
+  const tags: string[] = post.properties["tags"];
   const blueskyProp: BlueskyProp = post.properties["bluesky"];
 
   // This regex matches:

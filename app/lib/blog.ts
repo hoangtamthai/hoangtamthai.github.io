@@ -10,12 +10,12 @@ export interface BlogPost {
   title: string;
   date: Date;
   path: string;
-  properties?: Record<string, []>;
+  properties?: Record<string, any>;
 }
 
 export interface BlogPostWithContent extends BlogPost {
   content: string;
-  properties: Record<string, []>;
+  properties: Record<string, any>;
 }
 
 export function formatTitle(filename: string): string {
