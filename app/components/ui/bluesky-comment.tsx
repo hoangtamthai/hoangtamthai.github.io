@@ -268,6 +268,8 @@ export function BlueskyComment({
                   thread.root.author.handle,
                   thread.root.uri,
                 )}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="hover:bg-accent hover:text-accent-foreground rounded-r-md">
                   <div className="mb-2 flex items-center gap-1 sm:gap-2">
