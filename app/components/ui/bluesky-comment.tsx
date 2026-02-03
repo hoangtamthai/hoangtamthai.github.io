@@ -129,7 +129,7 @@ function CommentItem({ comment, depth }: CommentItemProps) {
               ></img>
             ))}
 
-            <div className="text-muted-foreground mt-3 flex items-center gap-4 text-xs">
+            <div className="text-muted-foreground mt-2 flex items-center gap-4 text-xs">
               <div className="flex gap-1">
                 <Heart size={16} className="my-auto inline" />
                 <Typography variant={"small"} className="my-auto text-center">
@@ -312,58 +312,57 @@ export function BlueskyComment({
                   >
                     {thread.root.text}
                   </Typography>
+                  <div
+                    id="thread-properties"
+                    className="text-muted-foreground flex gap-4 p-2"
+                  >
+                    <div className="my-auto flex gap-1">
+                      <Heart size={20} />
+                      <Typography variant="small">
+                        {thread.root.likeCount}
+                      </Typography>
+                    </div>
+                    <div className="my-auto flex gap-1">
+                      <MessageSquare size={20} />
+                      <Typography variant="small">
+                        {thread.replies.length}
+                      </Typography>
+                    </div>
+                    <Typography variant="small">
+                      {formatBlueskyDate(thread.root.createdAt)}
+                    </Typography>
+                  </div>
                 </div>
               </Link>
             </div>
 
-            {/* Replies */}
-            {thread.replies.length > 0 && (
-              <div className="space-y-3">
-                <div
-                  id="thread-properties"
-                  className="text-muted-foreground flex gap-4"
+            <div className="space-y-3">
+              <Link to={postUrl} target="_blank" rel="noopener noreferrer">
+                <Button
+                  className="mx-auto mb-2 w-full text-center"
+                  variant={"outline"}
+                  size="lg"
                 >
-                  <div className="my-auto flex gap-1">
-                    <Heart size={20} />
-                    <Typography variant="small">
-                      {thread.root.likeCount}
-                    </Typography>
-                  </div>
-                  <div className="my-auto flex gap-1">
-                    <MessageSquare size={20} />
-                    <Typography variant="small">
-                      {thread.replies.length}
-                    </Typography>
-                  </div>
-                  <Typography variant="small">
-                    {formatBlueskyDate(thread.root.createdAt)}
-                  </Typography>
-                </div>
-                <Link to={postUrl} target="_blank" rel="noopener noreferrer">
-                  <Button
-                    className="mx-auto mb-2 w-full text-center"
-                    variant={"outline"}
-                    size="lg"
-                  >
-                    <BlueskyIcon />
-                    Join Bluesky and reply :&gt;
-                  </Button>
-                </Link>
-                {thread.replies.map((comment) => (
-                  <CommentItem key={comment.uri} comment={comment} depth={0} />
-                ))}
-              </div>
-            )}
+                  <BlueskyIcon />
+                  Join Bluesky and reply :&gt;
+                </Button>
+              </Link>
+              {thread.replies.map((comment) => (
+                <CommentItem key={comment.uri} comment={comment} depth={0} />
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-4 border-t-2 pt-4 pb-2">
-          <Link to={postUrl} target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" size="lg" className="w-full">
-              Reply on Bluesky
-            </Button>
-          </Link>
-        </div>
+        {thread.replies.length > 0 && (
+          <div className="mt-4 border-t-2 pt-4 pb-2">
+            <Link to={postUrl} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="lg" className="w-full">
+                Reply on Bluesky
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

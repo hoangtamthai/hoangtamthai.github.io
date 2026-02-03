@@ -24,7 +24,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
     { name: "og:description", content: description },
     {
       name: "og:image",
-      content: `https://www.tamthai.de/images/blog/${originalTitle}.png`,
+      content: `https://www.tamthai.de/images/blog/${originalTitle.replace(" ", "%20")}.png`,
     },
   ];
 }

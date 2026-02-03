@@ -3,6 +3,9 @@ tags:
   - blog
   - devops
   - self-hosting
+bluesky:
+  post_id: 3mdyjj32atk2w
+  handle: tamthai.de
 ---
 
 I have recently signed up for [freeshell.de](https://freeshell.de/) (a free server with shared users) and set up [Uptime-Kuma](https://uptimekuma.org/) (monitoring service).
