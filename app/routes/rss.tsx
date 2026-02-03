@@ -1,8 +1,6 @@
-import { useLoaderData } from "react-router";
-import { getAllBlogPosts, getBlogPost } from "../lib/blog";
-import { Divide } from "lucide-react";
 import { marked } from "marked";
 import markedFootnote from "marked-footnote";
+import { getAllBlogPosts, getBlogPost } from "../lib/blog";
 
 marked.use(markedFootnote());
 export async function loader({ request }: { request: Request }) {
@@ -31,18 +29,7 @@ export async function loader({ request }: { request: Request }) {
     validPosts.map(async (post) => {
       const postUrl = `${baseUrl}/blog/${post.year}/${post.month}/${post.day}/${post.slug}`;
       const pubDate = post.date.toUTCString();
-
-      // Convert markdown content to HTML (basic conversion)
-      var content = await marked.parse(post.content);
-      // const content = raw_content
-      //   .replace(/&/g, "&amp;")
-      //   .replace(/</g, "&lt;")
-      //   .replace(/>/g, "&gt;")
-      //   .replace(/\n\n/g, "</p><p>")
-      //   .replace(/\n/g, "<br/>")
-      //   .replace(/^/, "<p>")
-      //   .replace(/$/, "</p>");
-
+      const content = await marked.parse(post.content);
       const tags = post.properties?.tags || [];
       const categoryTags = tags
         .map((tag: string) => `    <category>${tag}</category>`)
