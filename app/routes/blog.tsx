@@ -64,7 +64,7 @@ function BlogList({ posts }: { posts: Awaited<ReturnType<typeof loader>> }) {
             <Typography variant={"small"}>{formatDate(post.date)}</Typography>
             <span className="ml-1">{"|"}</span>
             <div className="mx-1">
-              {post.properties!["tags"]?.map((tag: string) => {
+              {post.properties?.["tags"]?.map((tag: string) => {
                 return (
                   <Badge variant="outline" className="m-0.5">
                     #{tag}
