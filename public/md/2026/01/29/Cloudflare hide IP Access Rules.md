@@ -67,4 +67,4 @@ I'm not a big fan of LLM and AI, but I still usually use them to help me with da
 For today's story, without its assistance, I don't know how long it would take me to actually complete my goal.
 I hope that by writing this blog, I can help someone in the future and maybe give you some helpful insights.
 
-Thanks for reading, and if you have any suggestions, please send them to me by email tamthai.de@gmail.com or leave comments below (not available but hopefully soon :>)
+Thanks for reading, and if you have any suggestions, please send them to me by email tamthai.de@gmail.com or leave comments below.

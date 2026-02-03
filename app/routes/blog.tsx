@@ -25,10 +25,10 @@ export default function Blog() {
   return (
     <BodyContainer>
       <div className="h-20"></div>
-      <Typography id="/blog" variant={"h1"} affects={"bracket"}>
+      <Typography id="/blog" variant={"h2"} affects={"bracket"}>
         (B)log
       </Typography>
-      <Typography variant={"p"}>
+      <Typography variant={"h1"}>
         Welcome to my (B)log, a combination of blog and log (short, bullet
         styles) about the things I like to do, which are mostly about tech,
         self-hosting, configurations, and tools I use.
@@ -52,7 +52,7 @@ function BlogList({ posts }: { posts: Awaited<ReturnType<typeof loader>> }) {
         <Link
           key={post.path}
           to={`/blog/${post.year}/${post.month}/${post.day}/${post.slug}`}
-          className="border-foreground hover:border-muted-foreground block rounded-md border-2 p-4 transition-colors"
+          className="border-foreground hover:bg-accent block rounded-md border-2 p-4 transition-colors"
         >
           <Typography variant={"h4"} className="mb-1">
             {post.title}
@@ -61,9 +61,9 @@ function BlogList({ posts }: { posts: Awaited<ReturnType<typeof loader>> }) {
             variant={"p"}
             className="text-muted-foreground mt-0 flex items-center text-sm"
           >
-            <span>{formatDate(post.date)}</span>
+            <Typography variant={"small"}>{formatDate(post.date)}</Typography>
+            <span className="ml-1">{"|"}</span>
             <div className="mx-1">
-              <span className="w-1">{"|"}</span>
               {post.properties!["tags"]?.map((tag: string) => {
                 return (
                   <Badge variant="outline" className="m-0.5">

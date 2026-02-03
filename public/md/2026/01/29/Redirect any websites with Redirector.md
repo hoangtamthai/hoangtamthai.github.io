@@ -3,10 +3,8 @@ tags:
   - log
   - extension
 bluesky:
-  handle:
-    - tamthai.de
-  post_id:
-    - 3mdr763h4jk26
+  handle: tamthai.de
+  post_id: 3mdr763h4jk26
 ---
 
 If you like me and want to see posts from [X](https://x.com) (formerly Twitter), but don't want to see it on x.com because it requires a login.

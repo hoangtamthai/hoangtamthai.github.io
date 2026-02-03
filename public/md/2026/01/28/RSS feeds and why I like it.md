@@ -4,10 +4,8 @@ tags:
   - rss
   - self-hosting
 bluesky:
-  post_id:
-    - 3mdqzixymlc23
-  handle:
-    - tamthai.de
+  post_id: 3mdqzixymlc23
+  handle: tamthai.de
 ---
 
 I have been aware of RSS feeds for a while now, but I was not entirely sure how or why people use them.
@@ -116,7 +114,7 @@ I hope by reading this blog it also inspires you to try out new things :>
 - [RSS.Social](https://rss.social/)
 - [minifeed](https://minifeed.net/global)
 
-Thanks for reading, and if you have any suggestions, please send them to me by email tamthai.de@gmail.com or leave comments below (not available but hopefully soon :>)
+Thanks for reading, and if you have any suggestions, please send them to me by email tamthai.de@gmail.com or leave comments below.
 
 ## Footnotes
 

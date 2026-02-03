@@ -1,20 +1,31 @@
+import { ExternalLink, Eye } from "lucide-react";
 import { marked } from "marked";
 import markedFootnote from "marked-footnote";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { BodyContainer } from "../components/section/body-container";
+import { getPageStatUrl, PageView } from "../components/section/page-view";
 import { Badge } from "../components/ui/badge";
 import { BlueskyComment } from "../components/ui/bluesky-comment";
+import { Button } from "../components/ui/button";
 import Typography from "../components/ui/typography";
 import { formatDate, getBlogPost } from "../lib/blog";
-import type { Route } from "./+types/blog-post";
 import type { BlueskyProp } from "../lib/bluesky";
+import type { Route } from "./+types/blog-post";
 
 export function meta({ loaderData }: Route.MetaArgs) {
+  const originalTitle = loaderData ? `${loaderData.title}` : "(B)log";
+  const title = `${originalTitle} | Tam Thai`;
+  const description = loaderData ? `${loaderData.title}` : "Tam Thai (B)log";
+
   return [
+    { title: title },
+    { name: "description", content: description },
+    { name: "og:title", content: title },
+    { name: "og:description", content: description },
     {
-      title: loaderData ? `${loaderData.title} - Tam Thai` : "Tam Thai (B)log",
+      name: "og:image",
+      content: `https://www.tamthai.de/images/blog/${originalTitle}`,
     },
-    { name: "description", content: loaderData?.title || "Tam Thai (B)log" },
   ];
 }
 
@@ -73,25 +84,38 @@ export default function BlogPost() {
   return (
     <BodyContainer>
       <div className="h-20"></div>
-      <Typography variant={"h2"} affects={"bracket"}>
+      <Typography variant={"h1"} affects={"bracket"}>
         {title}
       </Typography>
-      <Typography
-        variant={"p"}
-        className="text-muted-foreground flex flex-row items-center justify-start"
-      >
-        <span>{formatDate(date)}</span>
-        <div className="mx-1">
-          <span className="w-1">{"|"}</span>
+      <div className="text-muted-foreground mt-4 flex flex-col items-center justify-start overflow-clip sm:flex-row">
+        <Typography variant={"p"}>{formatDate(date)}</Typography>
+        <Typography variant={"small"} className="mx-1 my-auto">
+          {"|"}
+        </Typography>
+        <div className="flex">
           {tags?.map((tag: string) => {
             return (
-              <Badge variant="outline" className="m-1">
+              <Badge
+                key={tag}
+                variant="outline"
+                className="text-muted-foreground m-1"
+              >
                 #{tag}
               </Badge>
             );
           })}
         </div>
-      </Typography>
+        <Typography variant={"small"} className="mx-1 my-auto">
+          {"|"}
+        </Typography>
+        <Link to={getPageStatUrl()} target="_blank" rel="noopener noreferrer">
+          <Button variant={"outline"}>
+            <Eye size={24} />
+            <PageView />
+            <ExternalLink />
+          </Button>
+        </Link>
+      </div>
       <div className="h-6"></div>
       <article
         className="markdown-body"
