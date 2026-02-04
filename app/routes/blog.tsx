@@ -8,9 +8,15 @@ import { Rss } from "lucide-react";
 import { Button } from "../components/ui/button";
 
 export function meta({}: Route.MetaArgs) {
+  const title = "Tam Thai (B)log";
+  const description =
+    "Welcome to my (B)log, a combination of blog and log (short, bullet styles) about the things I like to do, which are mostly about tech, self-hosting, configurations, and tools I use.";
   return [
-    { title: "Tam Thai (B)log" },
-    { name: "description", content: "Tam Thai (B)log" },
+    { title: title },
+    { name: "description", content: description },
+    { name: "og:title", content: title },
+    { name: "og:description", content: description },
+    { name: "og:image", content: "https://www.tamthai.de/images/og-image.png" },
   ];
 }
 
