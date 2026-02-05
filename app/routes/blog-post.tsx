@@ -14,8 +14,9 @@ import type { Route } from "./+types/blog-post";
 
 export function meta({ loaderData }: Route.MetaArgs) {
   const originalTitle = loaderData ? `${loaderData.title}` : "(B)log";
-  const title = `${originalTitle} | Tam Thai`;
-  const description = loaderData ? `${loaderData.title}` : "Tam Thai (B)log";
+  const name = "Tam Thai";
+  const title = `${originalTitle} | ${name}`;
+  const description = loaderData ? `${loaderData.title}` : `${name} (B)log`;
 
   return [
     { title: title },
@@ -24,7 +25,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
     { name: "og:description", content: description },
     {
       name: "og:image",
-      content: `https://www.tamthai.de/images/blog/${originalTitle.replace(" ", "%20")}.png`,
+      content: `https://og.tamthai.de/api/og?title=${originalTitle}&description=${name}`,
     },
   ];
 }
@@ -74,6 +75,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
     blueskyProp,
   };
 }
+
 function slugToTitle(slug: string): string {
   return slug.replace(/-/g, " ").replace(/~/g, "-");
 }
