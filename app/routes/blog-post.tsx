@@ -27,6 +27,13 @@ export function meta({ loaderData }: Route.MetaArgs) {
       name: "og:image",
       content: `https://og.tamthai.de/api/og?title=${encodeURI(originalTitle)}&description=${encodeURI(name)}`,
     },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    {
+      name: "twitter:image",
+      content: `https://og.tamthai.de/api/og?title=${encodeURI(originalTitle)}&description=${encodeURI(name)}`,
+    },
   ];
 }
 
