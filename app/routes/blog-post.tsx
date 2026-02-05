@@ -22,6 +22,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
     { title: title },
     { name: "description", content: description },
     { property: "og:title", content: title },
+    { property: "og:type", content: "article" },
     { property: "og:description", content: description },
     {
       property: "og:image",
