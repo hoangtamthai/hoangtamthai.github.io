@@ -21,10 +21,10 @@ export function meta({ loaderData }: Route.MetaArgs) {
   return [
     { title: title },
     { name: "description", content: description },
-    { name: "og:title", content: title },
-    { name: "og:description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
     {
-      name: "og:image",
+      property: "og:image",
       content: `https://og.tamthai.de/api/og?title=${encodeURI(originalTitle)}&description=${encodeURI(name)}`,
     },
     { name: "twitter:card", content: "summary_large_image" },

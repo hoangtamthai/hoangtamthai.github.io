@@ -8,14 +8,14 @@ bluesky:
   handle: tamthai.de
 ---
 
-I have recently signed up for [freeshell.de](https://freeshell.de/) (a free server with shared users) and set up [Uptime-Kuma](https://uptimekuma.org/) (monitoring service).
+I have recently signed up for [freeshell.de](https://freeshell.de/) (a free server with shared users) and set up [Uptime Kuma](https://uptimekuma.org/) (monitoring service).
 Things were going great, all my services are green.
 But when I monitored a site behind [Cloudflare tunnels](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), it got **403**!
-Hmm, that's weird. I can still access the site on my browser perfectly fine, so why can't Uptime-Kuma?
+Hmm, that's weird. I can still access the site on my browser perfectly fine, so why can't Uptime Kuma?
 
 ## Why it got 403
 
-I checked with `curl -I https://site-behind-cloudflare` inside the Uptime-Kuma.
+I checked with `curl -I https://site-behind-cloudflare` inside the Uptime Kuma.
 It got challenged by Cloudflare bot detection.
 Aha, that's the reason, I just need to add some settings to Cloudflare to allow this IP.
 That's just it, right?
@@ -31,7 +31,7 @@ In Dashboard -> Domain -> Security -> **Security rules** is the page to configur
 Then I created a new `Custom rule` that allows matched IP Source Address to skip the bot check.
 Done.
 It was not that hard.
-I went back and tried fetching from Uptime-Kuma.
+I went back and tried fetching from Uptime Kuma.
 The problem was still there...
 The config didn't have any effects.
 The security events still log the request as a bot.
