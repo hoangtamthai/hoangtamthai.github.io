@@ -25,7 +25,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
     { name: "og:description", content: description },
     {
       name: "og:image",
-      content: `https://og.tamthai.de/api/og?title=${originalTitle}&description=${name}`,
+      content: `https://og.tamthai.de/api/og?title=${encodeURI(originalTitle)}&description=${encodeURI(name)}`,
     },
   ];
 }
