@@ -332,6 +332,25 @@ export default function HomePage() {
         <CarouselNext />
         <CarouselPrevious />
       </Carousel>
+
+      <div className="h-20"></div>
+      <Typography id="blog" variant={"h2"} affects={"bracket"}>
+        (B)log
+      </Typography>
+      <Typography variant={"p"}>
+        Check out my
+        <Link to={"/blog"}>
+          <Button
+            variant="outline"
+            className="mx-2 my-auto inline items-center text-center"
+            aria-label="Blog"
+          >
+            (B)log
+          </Button>
+        </Link>
+        a combination of long form blog and short form log mainly about
+        self-hosting, configurations, and tools.
+      </Typography>
     </BodyContainer>
   );
 }
